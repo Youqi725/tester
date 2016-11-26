@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,user-scalable=no,maximam-scale=1" />
+	<title>3キャリア対応</title>
+	<link rel="stylesheet" media="all" type="text/css" href="style.css" />
+</head>
+<body>
+	<h1>3キャリア対応</h1>
+	<div id="content">
+		<div id="sbmenu">
+			 <ul>
+				<li class="active">メニュー1</li>
+				<li>てきすとてきすとてきすとてきすとてきすと</li>
+				<li>てきすとてきすとてきすとてきすとてきすと</li>
+				<li>てきすとてきすとてきすとてきすとてきすと</li>
+			</ul>
+		</div>
+		<div id="detail">
+			<div class="tab-box active">
+				<p>1</p>
+			</div>
+			<div class="tab-box">
+				<p>aaaaaaaaa</p>
+			</div>
+			<div class="tab-box">
+				<p>ppp</p>
+			</div>
+			<div class="tab-box">
+				<p>vvvv</p>
+			</div>
+		</div>
+	</div>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+	<script>
+		$(function(){
+			var tab = $('#sbmenu ul').find('li');
+			var box = $('#detail').find('div');
+			tab.on('click', function(){
+				if($(this).not('active')){
+					// タブメニュー
+					$(this).addClass('active').siblings('li').removeClass('active');
+					// タブの中身
+					var index = tab.index(this);
+				box.eq(index).addClass('active').siblings('div').removeClass('active');
+				}
+			});
+		});
+	</script>
+</body>
+</html>

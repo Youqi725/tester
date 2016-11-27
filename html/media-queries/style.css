@@ -21,7 +21,7 @@ body{
 	padding: 0 30px;
 }
 
-@madia screen and (max-width:700px){
+@madia screen and (max-width:760px){
 	img {
 		width: 100%;
 	}

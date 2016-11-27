@@ -38,13 +38,14 @@
 		$(function(){
 			var tab = $('#sbmenu ul').find('li');
 			var box = $('#detail').find('div');
-			tab.on('click', function(){
+			tab.on('click touchstart', function(){
 				if($(this).not('active')){
 					// タブメニュー
 					$(this).addClass('active').siblings('li').removeClass('active');
 					// タブの中身
 					var index = tab.index(this);
 				box.eq(index).addClass('active').siblings('div').removeClass('active');
+					return false;
 				}
 			});
 		});

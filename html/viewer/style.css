@@ -19,7 +19,7 @@ body {
 }
 .variation li {
 	width: 200px;
-	//height: 100px;
+	height: 200px;
 	background: #fff;
 	//float: left;
 	margin: 10px 10px 0 0 ;
@@ -30,12 +30,12 @@ body {
 	//align-items: center;
 	color: #000;
 }
-.variation li a {
+.variation li img {
 	//position: absolute;
 	//top: 50%;
 	//left: 15px;
 	//margin: -0.5em;
-	color: #000;
+	width: 80%;
 }
 .variation li.active{
 	background: #ccc;

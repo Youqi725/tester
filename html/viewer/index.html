@@ -9,10 +9,10 @@
 <body>
 	<div id="content">
 		<div class="viewer">
-			<div class="view">いmg</div>
+			<div class="view"><img src="asset.jpg" alt=""></div>
 			<div class="variation">
 				 <ul>
-					<li class="active">画像1</li>
+					<li class="active"><img src="asset.jpg" alt=""></li>
 					<li>画像2</li>
 					<li>画像3</li>
 					<li>画像4</li>
@@ -21,7 +21,7 @@
 		</div>
 		
 		<div class="viewer">
-			<div class="view">いmg</div>
+			<div class="view"><img src="asset.jpg" alt=""></div>
 			<div class="variation">
 				 <ul>
 					<li class="active">画像1</li>
@@ -38,7 +38,9 @@
 		$(function(){
 			var hasTouchEvent = ('ontouchstart' in window) ? 'touchstart' : 'click';
 			var viewer = $(document).hasClass('.viewer');
+			var view = $(document).hasClass('.view'); 
 			var tab = $('.variation').find('li');
+			var imgSrc; 
 			
 			tab.on(hasTouchEvent, function(){
 				
@@ -46,11 +48,12 @@
 					// タブメニュー
 					$(this).addClass('active').siblings('li').removeClass('active');
 					//
-					var parentClass = $(this).parents();
+					//$(this).attr('src');
+					alert($(this).attr('src'));
+					//view.attr('src');
 					// タブの中身
 					var index = tab.index(this);
-					alert($(this).parent().hasClass('.view'));
-				//
+					//
 box.eq(index).addClass('active').siblings('div').removeClass('active');
 					return false;
 				}

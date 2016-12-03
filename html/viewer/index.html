@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,user-scalable=no,maximam-scale=1" />
+	<title>3キャリア対応</title>
+	<link rel="stylesheet" media="all" type="text/css" href="style.css" />
+</head>
+<body>
+	<div id="content">
+		<div class="viewer">
+			<div class="view">いmg</div>
+			<div class="variation">
+				 <ul>
+					<li class="active">画像1</li>
+					<li>画像2</li>
+					<li>画像3</li>
+					<li>画像4</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="viewer">
+			<div class="view">いmg</div>
+			<div class="variation">
+				 <ul>
+					<li class="active">画像1</li>
+					<li>画像2</li>
+					<li>画像3</li>
+					<li>画像4</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+	<script>
+		$(function(){
+			var hasTouchEvent = ('ontouchstart' in window) ? 'touchstart' : 'click';
+			var viewer = $(document).hasClass('.viewer');
+			var tab = $('.variation').find('li');
+			
+			tab.on(hasTouchEvent, function(){
+				
+				if($(this).not('active')){
+					// タブメニュー
+					$(this).addClass('active').siblings('li').removeClass('active');
+					//
+					var parentClass = $(this).parents();
+					// タブの中身
+					var index = tab.index(this);
+					alert($(this).parent().hasClass('.view'));
+				//
+box.eq(index).addClass('active').siblings('div').removeClass('active');
+					return false;
+				}
+			});
+		});
+	</script>
+</body>
+</html>

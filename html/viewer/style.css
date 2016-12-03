@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+body {
+	font-size: 80%;
+	background: #000;
+	color: #fff;
+}
+.view{
+	width: 300px;
+	height: 300px;
+	background: #ccc;
+}
+.variation{
+	width: 100%;
+}
+.variation ul {
+	display: flex;
+	flex-warp: warp;
+}
+.variation li {
+	width: 200px;
+	//height: 100px;
+	background: #fff;
+	//float: left;
+	margin: 10px 10px 0 0 ;
+	padding: 30px;
+	//position: relative;
+	//display: flex;
+	//-webkit-align-items: center;
+	//align-items: center;
+	color: #000;
+}
+.variation li a {
+	//position: absolute;
+	//top: 50%;
+	//left: 15px;
+	//margin: -0.5em;
+	color: #000;
+}
+.variation li.active{
+	background: #ccc;
+}

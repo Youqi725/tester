@@ -9,25 +9,25 @@
 <body>
 	<div id="content">
 		<div class="viewer">
-			<div class="view"><img src="asset.jpg" alt=""></div>
+			<div class="view"><img src="asset_bb.jpg" alt=""></div>
 			<div class="variation">
 				 <ul>
-					<li class="active"><img src="asset.jpg" alt=""></li>
-					<li>画像2</li>
-					<li>画像3</li>
-					<li>画像4</li>
+					<li class="active"><img src="images/49010_o.jpg" alt=""></li>
+					<li><img src="images/49011_o.jpg" alt=""></li>
+					<li><img src="images/49012_o.jpg" alt=""></li>
+					<li><img src="images/49013_o.jpg" alt=""></li>
 				</ul>
 			</div>
 		</div>
 		
 		<div class="viewer">
-			<div class="view"><img src="asset.jpg" alt=""></div>
+			<div class="view"><img src="69034.jpg" alt=""></div>
 			<div class="variation">
 				 <ul>
-					<li class="active">画像1</li>
-					<li>画像2</li>
-					<li>画像3</li>
-					<li>画像4</li>
+					<li class="active"><img src="images/69034_o.jpg" alt=""></li>
+					<li><img src="images/69035_o.jpg" alt=""></li>
+					<li><img src="images/69036_o.jpg" alt=""></li>
+					<li><img src="images/69037_o.jpg" alt=""></li>
 				</ul>
 			</div>
 		</div>
@@ -37,24 +37,26 @@
 	<script>
 		$(function(){
 			var hasTouchEvent = ('ontouchstart' in window) ? 'touchstart' : 'click';
-			var viewer = $(document).hasClass('.viewer');
-			var view = $(document).hasClass('.view'); 
-			var tab = $('.variation').find('li');
-			var imgSrc; 
 			
-			tab.on(hasTouchEvent, function(){
+			var tab = $('.variation').find('li');
+			var imgSrc;
+			var endPath = '_o.jpg';
+			
+			tab.on(hasTouchEvent, function(){				//alert($(this).children().attr('src'));
+				imgSrc = $(this).children().attr('src');
+				imgPath = imgSrc.substr(0, imgSrc.length-6);
 				
 				if($(this).not('active')){
 					// タブメニュー
 					$(this).addClass('active').siblings('li').removeClass('active');
 					//
-					//$(this).attr('src');
-					alert($(this).attr('src'));
-					//view.attr('src');
+					view = $(this).parents().find('.view').children();
+					alert(view.attr('src'));
+					view.attr('src', imgPath + endPath);
+					alert(view.attr('src'));
 					// タブの中身
-					var index = tab.index(this);
-					//
-box.eq(index).addClass('active').siblings('div').removeClass('active');
+					//var index = tab.index(this);
+//box.eq(index).addClass('active').siblings('div').removeClass('active');
 					return false;
 				}
 			});

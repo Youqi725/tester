@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,user-scalable=no,maximam-scale=1" />
+	<title></title>
+	<link rel="stylesheet" media="all" type="text/css" href="style.css" />
+</head>
+<body>
+	<div id="header">
+		<p>ヘッダー部分</p>
+		<p>色は？</p>
+	</div>
+	<div id="content">
+		<div class="height" style="height: 900px;">
+			<p></p>
+		</div>
+		<div class="test">
+			<ul>
+				<li>1</li>
+				<li>text</li>
+				<li>text</li>
+				<li>text</li>
+				<li>text</li>
+				<li>text</li>
+				<li>text</li>
+				<li>text</li>
+				<li>text</li>
+				<li>text</li>
+				<li>text</li>
+				<li>text</li>
+				<li>text</li>
+				<li>text</li>
+				<li>text</li>
+				<li>text</li>
+				<li>text</li>
+				<li>text</li>
+				<li>text</li>
+				<li>text</li>
+				<li>text</li>
+			</ul>
+			<p>コンテンツ</p>
+		</div>
+	</div>
+
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+	<script>
+		$(function(){
+			var target = $('.test');
+			var targetTop = target.offset().top;
+			var delaySpeed = 100;
+			var fadeSpeed = 200;
+			var animation = false;
+			
+			$(window).scroll(function(){
+				var windowHeight = $(window).height();
+				var windowScroll = $(window).scrollTop();
+				if(windowScroll > targetTop - windowHeight){
+					if(!animation){
+						animation = true;
+						$('.test ul li').each(function(i){
+							$(this).delay(i*(delaySpeed)).css({
+								display:'block', opacity:'0'}).animate({
+								opacity:'1'
+							},fadeSpeed);
+						});
+					}
+				}
+			});
+		});
+	</script>
+</body>
+</html>

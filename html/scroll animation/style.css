@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+#content{
+	width: 90%;
+	height: 800px;
+	margin: 0px auto;
+	padding: 10%;
+	background: #fff;
+	color: #000;
+}
+#content .test ul li{
+	display: none;
+	width: 100px;
+	height: 100px;
+	float: left;
+	background: #000;
+	border: 1px solid #000;
+}

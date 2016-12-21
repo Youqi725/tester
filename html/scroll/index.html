@@ -30,18 +30,25 @@
 
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 	<script>
-			$(window).on('scroll',function(){
-					var target = $(this).offset().top;
-					var windowScroll = $(window).scrollTop();
-					var windowHeight = $(window).height();
-					if(windowScroll >= target && windowScroll){
-						alert($(window).scrollTop());
-						//alert($(window).scrollTop());
-						$(this).animate({
-							marginTop: $(window).scrollTop()
-						});
-					}
+		$(function(){
+			var target = $('.test');
+			var targetTop = target.offset().top;
+			var maxHeight = target.parent().height();
+			
+			$(window).scroll(function(){
+				var windowScroll = $(window).scrollTop();
+				alert(windowScroll);
+				if(windowScroll > targetTop && windowScroll < maxHeight){
+					target.animate({
+						marginTop: $(window).scrollTop()					});
+				} else if(windowScroll >= maxHeight){
+					alert("over");
+				} else {
+					target.animate({
+						marginTop: 0								});
+				}
 			});
+		});
 	</script>
 </body>
 </html>

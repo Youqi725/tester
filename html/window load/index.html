@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,user-scalable=no,maximam-scale=1" />
+	<title>3キャリア対応</title>
+	<link rel="stylesheet" media="all" type="text/css" href="style.css" />
+</head>
+<body>
+	<div id="content">
+		<div class="viewer">
+			<div class="view"><img src="asset_bb.jpg" alt=""></div>
+			<div class="variation">
+				 <ul>
+					<li class="active"><img src="images/49010_o.jpg" alt=""></li>
+					<li><img src="images/49011_o.jpg" alt=""></li>
+					<li><img src="images/49012_o.jpg" alt=""></li>
+					<li><img src="images/49013_o.jpg" alt=""></li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="viewer">
+			<div class="view"><img src="69034.jpg" alt=""></div>
+			<div class="variation">
+				 <ul>
+					<li class="active"><img src="images/69034_o.jpg" alt=""></li>
+					<li><img src="images/69035_o.jpg" alt=""></li>
+					<li><img src="images/69036_o.jpg" alt=""></li>
+					<li><img src="images/69037_o.jpg" alt=""></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+	<script>
+		$(function(){
+			
+			function tabControl() {
+			var hasTouchEvent = ('ontouchstart' in window) ? 'touchstart' : 'click';
+			
+			var tab = $('.variation').find('li');
+			var imgSrc;
+			var endPath = '_o.jpg';
+			
+			tab.on(hasTouchEvent, function(){				//alert($(this).children().attr('src'));
+				imgSrc = $(this).children().attr('src');
+				imgPath = imgSrc.substr(0, imgSrc.length-6);
+				
+				if($(this).not('active')){
+					// タブメニュー
+					$(this).addClass('active').siblings('li').removeClass('active');
+					//
+					view = $(this).parents().find('.view').children();
+					view.attr('src', imgPath + endPath);
+					// タブの中身
+					//var index = tab.index(this);
+//box.eq(index).addClass('active').siblings('div').removeClass('active');
+					return false;
+				}
+			});
+			}
+			
+			$(window).on('resize load', function(){
+				alert($(window).width());
+				
+				if(740 > $(window).width()){
+					tabControl();
+				}
+			});
+		});
+	</script>
+</body>
+</html>
